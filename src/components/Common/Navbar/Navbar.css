@@ -1,0 +1,4 @@
+.verticalNav{
+    display: flex;
+    direction: row;
+}
