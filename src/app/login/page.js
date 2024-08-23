@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styles from './page.module.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase/config';
-
+import { googleLogin } from '@/common/googleLogin';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -57,6 +57,8 @@ export default function Login() {
           </div>
           <button type="submit" className={styles.button}>Login</button>
         </form>
+        <p>or</p>
+        <button onClick={googleLogin} >Sign in with google</button>
         {/* {message && <p className={styles.message}>{message}</p>} */}
       </main>
     </div>
