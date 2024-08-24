@@ -21,10 +21,11 @@ useGSAP(()=>{
         LOGO
     </div>
     <div className={`gap-[100px] flex-row h-auto hidden md:flex ${isOpen ? 'verticalNav' : ''}`}>
-        <p className='mid-nav-txt text-xl'>Home</p>
-        <p className='mid-nav-txt text-xl'>About</p>
-        <p className='mid-nav-txt text-xl'>Services</p>
-        <p className='mid-nav-txt text-xl'>Contact</p>
+    <a href="#home" className="mid-nav-txt text-xl">Home</a>
+    <a href="#about" className="mid-nav-txt text-xl">About</a>
+    <a href="#services" className="mid-nav-txt text-xl">Services</a>
+    <a href="#contact" className="mid-nav-txt text-xl">Contact</a>
+
     </div>
     <div>
         <CustomButtonV1 content="Login" />
