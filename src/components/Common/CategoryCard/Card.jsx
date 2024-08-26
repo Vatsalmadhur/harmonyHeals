@@ -11,7 +11,7 @@ const Card = () => {
             <img src='/assets/freq.jpg' />
         </div>
         <div className='w-[40vw] h-[200px] px-5 ' >
-            <Headingv2 text="Healing" fontSize="3rem"/>
+            <Headingv2 text="Healing" fontSize="100px"/>
             <p className='customFont3 mt-5' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quis quisquam asperiores expedita, corrupti ut quam. Sequi asperiores ratione esse doloremque architecto velit exercitationem iusto repellat quaerat impedit perspiciatis odio reiciendis veniam vitae recusandae sunt</p>
 
         </div>

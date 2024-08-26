@@ -34,8 +34,8 @@ export const Hero = () => {
       Tibetan singing bowls produce resonant tones that promote relaxation, balance energy, and reduce stress. They are believed to offer benefits such as improved sleep, reduced anxiety, and enhanced emotional well-being.
     </p>
     <div className="flex flex-row gap-4 subHeroText opacity-0">
-      <CustomButtonV2 content="Learn More" />
-      <CustomButtonV1 content="Try for free" />
+      <a href="#about"><CustomButtonV2 content="Learn More" /></a>
+     <a href="/categories"><CustomButtonV1 content="Try for free" /></a>
     </div>
   </div>
 </div>

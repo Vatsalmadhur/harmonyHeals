@@ -4,13 +4,43 @@ import Head from 'next/head';
 import styles from './page.module.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase/config';
-import { googleLogin } from '@/common/googleLogin';
+// import { googleLogin } from '@/common/googleLogin';
+import { userAuth } from '../Context/AuthContext';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const {user,googleSignIn,logOut}=userAuth();
 //Do not change this function
+
+//From useContext api
+async function handleGoogleLogin(){
+  try{
+    const result=await googleSignIn()
+  if(result.user){
+    window.location.href='/'
+  }
+  console.log(result.name);
+  }
+  catch(error){
+    console.log(error);
+  }
+
+}
+console.log(user)
+console.log("result")
+
+const handleSignOut=async ()=>{
+  try {
+    await logOut();
+  } catch(error){
+    console.log(error);
+  }
+
+}
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -56,9 +86,9 @@ export default function Login() {
             />
           </div>
           <button type="submit" className={styles.button}>Login</button>
-        </form>
         <p>or</p>
-        <button onClick={googleLogin} >Sign in with google</button>
+        <button onClick={handleGoogleLogin} className='bg-red-500' >Sign in with google</button>
+        </form>
         {/* {message && <p className={styles.message}>{message}</p>} */}
       </main>
     </div>

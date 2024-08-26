@@ -3,8 +3,15 @@ import { gsap } from 'gsap'
 import './Navbar.css'
 import { CustomButtonV1 } from '../CustomButton/CustomButtonV1'
 import { useGSAP } from '@gsap/react'
+import { userAuth } from '@/app/Context/AuthContext'
 export const Navbar = () => {
   const [isOpen,setIsOpen]= useState(false);
+  const {user}=userAuth()
+  // const [showLogin,setShowLogin]=useState(false);
+
+  // const handleLogin=()=>{
+  //   setShowLogin(true);
+  // }
 
   const toggleNav=()=>{
     setIsOpen(!isOpen);
@@ -28,8 +35,15 @@ useGSAP(()=>{
 
     </div>
     <div>
+      { user?
+      <>
+      <p>Welcome{user.displayName}</p>
+              <CustomButtonV1 content="Logout" />
+              </>
+      :
         <CustomButtonV1 content="Login" />
-    </div>
+      }
+        </div>
     <button className="sm:hidden" onClick={toggleNav}>toggle</button>
 </div>
 
