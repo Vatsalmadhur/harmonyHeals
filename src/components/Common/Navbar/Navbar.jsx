@@ -4,9 +4,24 @@ import './Navbar.css'
 import { CustomButtonV1 } from '../CustomButton/CustomButtonV1'
 import { useGSAP } from '@gsap/react'
 import { userAuth } from '@/app/Context/AuthContext'
+import { useRouter } from 'next/navigation'
+
 export const Navbar = () => {
   const [isOpen,setIsOpen]= useState(false);
-  const {user}=userAuth()
+  const {user,logOut}=userAuth()
+const router = useRouter();
+  const handleLogOut=async ()=>{
+    try {
+    await logOut();
+    } catch (error) {
+      console.log(error);
+
+    }
+  }
+
+  const handleLoginClick = ()=>{
+    router.push('/login');
+  }
   // const [showLogin,setShowLogin]=useState(false);
 
   // const handleLogin=()=>{
@@ -38,10 +53,13 @@ useGSAP(()=>{
       { user?
       <>
       <p>Welcome{user.displayName}</p>
-              <CustomButtonV1 content="Logout" />
+              <CustomButtonV1 content="Logout" onClick={handleLogOut} />  
+
               </>
       :
-        <CustomButtonV1 content="Login" />
+        <CustomButtonV1 content="Login" onClick={()=>router.push('/login')} />
+        // <button content="Login" onClick={()=>router.push('/login')} ></button>
+
       }
         </div>
     <button className="sm:hidden" onClick={toggleNav}>toggle</button>
