@@ -14,8 +14,8 @@ export const AuthContextProvider=({children})=>{
         try{
             const userCred=await createUserWithEmailAndPassword(auth,email,password);
             const user = userCred.user;
-            // alert(JSON.stringify(user.email));
-            console.log(user)
+            alert(JSON.stringify(user));
+            // console.log(user)
 
             await setDoc(doc(db,'users',user.uid),{
                 Fname,
@@ -30,26 +30,18 @@ export const AuthContextProvider=({children})=>{
     }
 }
 
-    // const emailSignIn = async (email,password,Fname,Lname)=>{
-    //     try{
-    //         const result = await signInWithEmailAndPassword(auth,email,password)
-    //         const user=auth.currentUser;
-    //         console.log(auth);
-    //         if(user){
-    //           await setDoc(doc(db,"Users",user.uid),{
-    //             email:user.email,
-    //             firstName:Fname,
-    //             lastName:Lname
-
-    //           })
-    //         }
-    //         alert("User registered successfully")
-    //         window.location.href='/login';
-    //     }
-    //     catch(error){
-    //       alert(error);
-    //     }
-    // }
+    const emailSignIn = async (email,password)=>{
+        // try{
+        //     const result = await signInWithEmailAndPassword(auth,email,password)
+        //     const user=result.currentUser;
+        //     console.log(user);
+           
+        // }
+        // catch(error){
+        //   alert(error);
+        // }
+        return signInWithEmailAndPassword(auth,email,password);
+    }
     const googleSignIn=()=>{
         const provider = new GoogleAuthProvider();
         return signInWithPopup(auth,provider);

@@ -9,10 +9,14 @@ import { userAuth } from '../Context/AuthContext';
 import { CustomButtonV1 } from '@/components/Common/CustomButton/CustomButtonV1';
 
 export default function Login() {
+
+const [userCred,setUserCred]= useState({email:'',pass:''})
+
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const { user, googleSignIn, logOut } = userAuth();
+  const { user, googleSignIn,emailSignIn, logOut } = userAuth();
   //Do not change this function
 
   //From useContext api
@@ -29,8 +33,23 @@ export default function Login() {
     }
 
   }
-  console.log(user)
-  console.log("result")
+  // console.log(user)
+  // console.log("result")
+
+  async function handleEmailLogin() {
+    try {
+      const result = await emailSignIn(userCred.email,userCred.pass);
+      if (result.user) {
+        console.log(result)
+        window.location.href = '/'
+      }
+      console.log(result.name);
+    }
+    catch (error) {
+      console.log(error);
+    }
+
+  }
 
   const handleSignOut = async () => {
     try {
@@ -41,18 +60,20 @@ export default function Login() {
 
   }
 
-
-  const handleSubmit = async (e) => {
+  const handleChange=(e)=>{
     e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password)
-      console.log("User registered successfully")
-      alert("user logged in successfully")
-      window.location.href = '/'
-    } catch (error) {
-      console.log(error)
+    const {name,value}=e.target;
 
-    }
+    setUserCred((prev)=>({
+      ...prev,
+      [name]:value
+    }))
+  }
+
+
+  const handleEmailSignin = async (e) => {
+    e.preventDefault();
+    
   };
 
   return (
@@ -67,7 +88,10 @@ export default function Login() {
           <div className="mb-4 w-full">
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Email"
+              name='email'
+              value={userCred.email}
+              onChange={handleChange}
               className="w-full px-4 py-2 text-white bg-transparent border border-white rounded outline-none placeholder:text-white focus:ring-2 focus:ring-white"
             />
           </div>
@@ -76,16 +100,18 @@ export default function Login() {
             <input
               type="password"
               placeholder="Password"
+              name='pass'
+              value={userCred.pass}
+              onChange={handleChange}
               className="w-full px-4 py-2 text-white bg-transparent border border-white rounded outline-none placeholder:text-white focus:ring-2 focus:ring-white"
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full px-4 py-2 font-semibold text-black bg-white rounded hover:bg-gray-200"
-          >
-            Log In
-          </button>
+          <CustomButtonV1
+        content="Sign in"
+         width="100%"
+         onClick={handleEmailLogin}
+       />
           <p className='text-md customFont2'>or</p>
           <CustomButtonV1
         content="Sign in with"

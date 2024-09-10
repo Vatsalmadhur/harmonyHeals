@@ -5,6 +5,7 @@ import { CustomButtonV1 } from '../CustomButton/CustomButtonV1'
 import { useGSAP } from '@gsap/react'
 import { userAuth } from '@/app/Context/AuthContext'
 import { useRouter } from 'next/navigation'
+import Profile from '../Profile/Profile'
 
 export const Navbar = () => {
   const [isOpen,setIsOpen]= useState(false);
@@ -43,17 +44,18 @@ useGSAP(()=>{
         LOGO
     </div>
     <div className={`gap-[100px] flex-row h-auto hidden md:flex ${isOpen ? 'verticalNav' : ''}`}>
-    <a href="#home" className="mid-nav-txt text-xl">Home</a>
-    <a href="#about" className="mid-nav-txt text-xl">About</a>
-    <a href="#services" className="mid-nav-txt text-xl">Services</a>
-    <a href="#contact" className="mid-nav-txt text-xl">Contact</a>
+    <a href="#home" className="mid-nav-txt text-xl text-white">Home</a>
+    <a href="#about" className="mid-nav-txt text-xl text-white">About</a>
+    <a href="#services" className="mid-nav-txt text-xl text-white">Services</a>
+    <a href="#contact" className="mid-nav-txt text-xl text-white">Contact</a>
 
     </div>
     <div>
       { user?
       <>
-      <p>Welcome{user.displayName}</p>
-              <CustomButtonV1 content="Logout" onClick={handleLogOut} />  
+      {/* <p>Welcome{user.displayName}</p> */}
+      <Profile/>
+              {/* <CustomButtonV1 content="Logout" onClick={handleLogOut} />   */}
 
               </>
       :

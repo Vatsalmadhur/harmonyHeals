@@ -15,7 +15,7 @@ const Heading = (props) => {
   return (
     <>
     <div className='max-w-[100%] border-b-[1px] border-white heading opacity-0' >
-    <p className='text-6xl customFont1 '>{props.text}</p>
+    <p className='text-6xl customFont1 text-white '>{props.text}</p>
     </div>
     </>
   )
