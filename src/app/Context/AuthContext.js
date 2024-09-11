@@ -3,6 +3,7 @@ import { auth, db } from "@/lib/firebase/config";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup, signOut,emailSignIn, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import React,{ createContext, useContext, useState, useEffect }  from "react";
+import { getDoc} from 'firebase/firestore';
 
 const AuthContext=createContext();
 
@@ -17,7 +18,7 @@ export const AuthContextProvider=({children})=>{
             alert(JSON.stringify(user));
             // console.log(user)
 
-            await setDoc(doc(db,'users',user.uid),{
+            await setDoc(doc(db,'Users',user.uid),{
                 Fname,
                 Lname,
                 email,
@@ -35,7 +36,7 @@ export const AuthContextProvider=({children})=>{
         //     const result = await signInWithEmailAndPassword(auth,email,password)
         //     const user=result.currentUser;
         //     console.log(user);
-           
+
         // }
         // catch(error){
         //   alert(error);
@@ -56,6 +57,26 @@ export const AuthContextProvider=({children})=>{
             setUser(currentUser);
         })
     },[user])
+    const [userData,setUserData]=useState(null);
+
+    // useEffect(() => {
+    //     if (!user || !user.uid) return;  // Check if user and user.uid are available
+
+    //     const docRef = doc(db, "users", user.uid);
+    //     getDoc(docRef)
+    //       .then((docSnap) => {
+    //         console.log("im here");
+    //         if (docSnap.exists()) {
+    //           setUserData(docSnap.data()); // Set user data if the document exists
+    //         } else {
+    //           console.log("No user");
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         console.error("Error fetching user data:", error);
+    //       });
+
+    //   }, [user]);
 
     return(
         <AuthContext.Provider value={{user,googleSignIn,logOut,emailSignIn,registerEmailPass}} >{children}</AuthContext.Provider>

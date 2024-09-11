@@ -16,11 +16,11 @@ export default function Home() {
         <div className='w-[100vw] flex flex-col items-center justify-center '>
         <div className='w-[80vw] '>
           <Spacer />
-        <About/>
+        {/* <About/>
         <Spacer />
         <Services/>
         <Spacer />
-        <Spacer />
+        <Spacer /> */}
 
         <Contact/>
         <Spacer />
