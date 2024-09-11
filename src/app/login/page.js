@@ -73,17 +73,27 @@ const [userCred,setUserCred]= useState({email:'',pass:''})
 
   const handleEmailSignin = async (e) => {
     e.preventDefault();
-    
+
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
-      <form className=" border border-white rounded-xl h-[50vh] w-[50vw] flex flex-row ">
-        <div className='bg-white w-[300px] h-full rounded-s-xl  '></div>
+      <form className=" border border-white rounded-xl h-auto sm:h-[60vh] lg:w-[60vw] sm:w-[70vw] w-[90vw] flex flex-row py-5 sm:py-0 ">
+        <div className='bg-white lg:w-[300px] sm:w-[250px] h-full rounded-s-xl  '></div>
         <div className=' w-full  flex items-center justify-center flex-col ' >
-        <div className=' w-[50%] h-full flex items-center justify-center flex-col gap-3' >
+        <div className=' sm:w-[60%] lg:w-[50%] w-[90%] h-full flex items-center justify-center flex-col gap-3' >
 
-          <h2 className="mb-6 text-4xl font-thin  text-white customFont2 ">Login to your account!</h2>
+          <h2 className="mb-6 lg:text-4xl  text-3xl font-thin  text-white customFont2 ">Login to your account!</h2>
+          <CustomButtonV1
+        content="Sign in with"
+         width="100%"
+         imgSrc="/assets/gicon.svg"
+         imgWidth="25"
+         imgHeight="25"
+         onClick={handleGoogleLogin}
+       />
+          <p className='text-md customFont2'>or</p>
+
 
           <div className="mb-4 w-full">
             <input
@@ -112,15 +122,7 @@ const [userCred,setUserCred]= useState({email:'',pass:''})
          width="100%"
          onClick={handleEmailLogin}
        />
-          <p className='text-md customFont2'>or</p>
-          <CustomButtonV1
-        content="Sign in with"
-         width="100%"
-         imgSrc="/assets/gicon.svg"
-         imgWidth="25"
-         imgHeight="25"
-         onClick={handleGoogleLogin}
-       />
+
           <p className='text-md customFont2 pt-3 ' >New to harmonyHeals?<a href='/signup' className='underline pl-1' >Signup here</a> </p>
           </div>
         </div>

@@ -25,41 +25,18 @@ const Signup = () => {
     e.preventDefault();
     console.log(details.email);
     console.log(details.Fname);
-
-    // await emailSignIn(email,password,Fname,Lname);
-    // console.log(e.target);
-    // try{
-    //     const result = await emailSignIn(auth,email,password)
-    //     const user=auth.currentUser;
-    //     console.log(auth);
-    //     if(user){
-    //       await setDoc(doc(db,"Users",user.uid),{
-    //         email:user.email,
-    //         firstName:Fname,
-    //         lastName:Lname
-
-    //       })
-    //     }
-    //     console.log("User registered successfully")
-    //     window.location.href='/login';
-    // }
-    // catch(error){
-    //   console.log(error);
-    // }
       await registerEmailPass(details.email,details.pass,details.Fname,details.Lname);
 
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
-  <form className="border border-white rounded-xl h-[50vh] w-[50vw] flex flex-row">
-    <div className="bg-white w-[300px] h-full rounded-s-xl"></div>
+   <form className=" border border-white rounded-xl h-auto sm:h-[60vh] lg:w-[60vw] sm:w-[70vw] w-[90vw] flex flex-row py-5 sm:py-0 ">
+   <div className='bg-white lg:w-[300px] sm:w-[250px] h-full rounded-s-xl  '></div>
     <div className="w-full flex items-center justify-center flex-col">
-      <div className="w-[50%] h-full flex items-center justify-center flex-col  ">
+      <div className=' sm:w-[60%] w-[90%] h-full flex items-center justify-center flex-col gap-3' >
 
-        <h2 className="mb-6 text-4xl font-thin text-white customFont2">
-          Create Your Account!
-        </h2>
+          <h2 className="mb-6 lg:text-4xl  text-3xl font-thin  text-white customFont2 ">Create your account!</h2>
 
         <div className="mb-4 w-full">
           <input
