@@ -7,11 +7,15 @@ import { Spacer } from '@/components/Common/Spacers/Spacer';
 import { Services } from '@/components/Services/Services';
 import { Contact } from '@/components/Contact/Contact';
 import Footer from '@/components/Common/Footer/Footer';
+import AudioCard from '@/components/Common/AudioCard/AudioCard';
+
+
 export default function Home() {
   return (
       <>
 
         <Navbar/>
+        {/* <AudioCard/> */}
         <Hero/>
         <div className='w-[100vw] flex flex-col items-center justify-center '>
         <div className='w-[80vw] '>

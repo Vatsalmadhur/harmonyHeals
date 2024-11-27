@@ -4,8 +4,9 @@ import Heading from '../Common/Headings/Heading'
 export const Contact = () => {
     return (
         <>
+        <section  id='contact'>
             <Heading text="Contact Us" />
-            <div className='width-auto h-auto flex flex-row p-10 items-center justify-center'>
+            <div className='width-auto h-auto flex flex-row p-10 items-center justify-center' >
                 <div className='border-2 flex flex-row items-center justify-center '>
                 <div className='w-[200px] h-[50vh] bg-slate-100 ' ></div>
                 <div className='w-[700px] h-[50vh] bg-black flex items-center justify-center ' >
@@ -26,6 +27,7 @@ export const Contact = () => {
                 </div>
                 </div>
             </div>
+            </section>
         </>
     )
 }
