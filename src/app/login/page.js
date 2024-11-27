@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-[url('/assests/back.jpg')] text-white flex flex-col items-center justify-center">
       <Head>
         <title>Login</title>
         <meta name="description" content="Login page" />
