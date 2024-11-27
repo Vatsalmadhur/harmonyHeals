@@ -17,11 +17,12 @@ html{
 
 .customFont3{
   font-family: "Montserrat", sans-serif;
-  /* font-style: italic; */
+  font-style: italic;
 }
 
 .body{
     background-color: #030104;
+    color: white;
 }
 
 .customInput{
