@@ -4,6 +4,7 @@ import { categoryDetail } from "../../../data"; // Adjust the import path
 import { useEffect, useState } from "react";
 import AudioCard from "@/components/Common/AudioCard/AudioCard";
 import Headingv2 from "@/components/Common/Headings/Headingv2";
+import Heading from "@/components/Common/Headings/Heading";
 
 export default function CategoryPage({ params }) {
   const { category } = params;
@@ -36,10 +37,9 @@ export default function CategoryPage({ params }) {
 
   return (
     <div className="p-10">
-      <h1 className="text-4xl font-bold">{data.title}</h1>
-      <Headingv2/>
+      <Headingv2 text={data.title} fontSize="4xl"/>
       <p className="mt-4 text-lg">{data.description}</p>
-      <div className=" min-h-[40vh] h-auto flex items-center justify-center flex-col gap-5" >
+      <div className=" min-h-[40vh] h-auto flex items-center justify-center flex-col gap-5 pt-10 " >
 
       {responseData && responseData.map((item)=>(
         <AudioCard title={item.title} duration={item.duration} />

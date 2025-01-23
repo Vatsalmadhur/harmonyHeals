@@ -26,7 +26,7 @@ export const Hero = () => {
 
       <div>
         {/* You can uncomment this if needed */}
-        {/* <BowlView/> */}
+        <BowlView/>
       </div>
 
       <div className="w-[400px] h-[400px] absolute right-[100px] bottom-[40px]">

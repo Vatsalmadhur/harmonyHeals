@@ -38,7 +38,7 @@ export const Navbar = () => {
 
   return (
     <div className="w-screen min-h-[70px] h-auto border-b-2 border-white flex items-center justify-around">
-      <div>LOGO</div>
+      <div>HarmonyHeals</div>
 
       {/* Menu Items */}
       <div className="gap-[100px] flex-row h-auto hidden md:flex">
