@@ -18,49 +18,27 @@ export const categories = [
 ];
 
 // data/categoryDetail.js
-// export const categoryDetail = {
-//   "Power Nap": {
-//     title: "Power Nap",
-//     description:
-//       "Power Nap sessions are designed to provide a quick yet profound boost to your energy and focus. By using soothing soundscapes and calming tones, these sessions guide your mind into a light sleep state, helping you recharge without the grogginess associated with longer naps. Ideal for busy individuals, Power Nap sessions enhance cognitive function, reduce fatigue, and improve overall productivity, leaving you refreshed and ready to tackle the day."
-//   },
-//   "Chakra": {
-//     title: "Chakra",
-//     description:
-//       "Chakra-focused sound healing is a transformative experience targeting the seven main energy centers in the body. Each session uses specific tones and vibrations to cleanse and balance these chakras, releasing blockages that may cause emotional or physical distress. By restoring equilibrium to your energy flow, chakra healing enhances vitality, emotional stability, and spiritual connection, offering a pathway to holistic wellness and harmony."
-//   },
-//   "Solfeggio Frequency": {
-//     title: "Solfeggio Frequency",
-//     description:
-//       "Solfeggio Frequencies are a series of ancient sound frequencies believed to hold powerful healing properties for the mind, body, and soul. Each frequency fosters emotional well-being, spiritual growth, and energy balance. By aligning your internal vibrations with these harmonizing tones, you can reduce stress, enhance relaxation, and create a deep sense of inner peace. These frequencies reconnect you with your natural rhythms and promote healing."
-//   },
-//   "Sleep Cycle": {
-//     title: "Sleep Cycle",
-//     description:
-//       "Sleep Cycle sessions are crafted to synchronize your body's natural rhythms with calming sound frequencies and gentle melodies. These sessions guide your mind through the stages of relaxation, helping you transition from wakefulness to deep, restorative sleep. By reducing stress and quieting mental chatter, they allow you to fall asleep faster and achieve a higher quality of rest, leaving you rejuvenated and ready to embrace the day."
-//   }
-// };
-
-
 export const categoryDetail = {
   "Power Nap": {
     title: "Power Nap",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Power naps help you rejuvenate quickly.",
+      "Power Nap sessions are designed to provide a quick yet profound boost to your energy and focus. By using soothing soundscapes and calming tones, these sessions guide your mind into a light sleep state, helping you recharge without the grogginess associated with longer naps. Ideal for busy individuals, Power Nap sessions enhance cognitive function, reduce fatigue, and improve overall productivity, leaving you refreshed and ready to tackle the day."
   },
   "Chakra": {
     title: "Chakra",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Chakras align your energy fields.",
+      "Chakra-focused sound healing is a transformative experience targeting the seven main energy centers in the body. Each session uses specific tones and vibrations to cleanse and balance these chakras, releasing blockages that may cause emotional or physical distress. By restoring equilibrium to your energy flow, chakra healing enhances vitality, emotional stability, and spiritual connection, offering a pathway to holistic wellness and harmony."
   },
   "Solfeggio Frequency": {
     title: "Solfeggio Frequency",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Meditation aids in mental clarity.",
+      "Solfeggio Frequencies are a series of ancient sound frequencies believed to hold powerful healing properties for the mind, body, and soul. Each frequency fosters emotional well-being, spiritual growth, and energy balance. By aligning your internal vibrations with these harmonizing tones, you can reduce stress, enhance relaxation, and create a deep sense of inner peace. These frequencies reconnect you with your natural rhythms and promote healing."
   },
   "Sleep Cycle": {
     title: "Sleep Cycle",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Meditation aids in mental clarity.",
-  },
+      "Sleep Cycle sessions are crafted to synchronize your body's natural rhythms with calming sound frequencies and gentle melodies. These sessions guide your mind through the stages of relaxation, helping you transition from wakefulness to deep, restorative sleep. By reducing stress and quieting mental chatter, they allow you to fall asleep faster and achieve a higher quality of rest, leaving you rejuvenated and ready to embrace the day."
+  }
 };
+
+

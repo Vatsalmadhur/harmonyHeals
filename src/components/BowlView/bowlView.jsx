@@ -16,9 +16,9 @@ const MusicSphere = () => {
     <Canvas shadows dpr={[1, 2]} camera={{ fov: 50,position:[7,10,7] }}  >
       <Suspense fallback={null}>
         <Stage controls={ref} preset="rembrandt" intensity={1}   environment="studio"  >
-        false
-          <Bowl />
-        false
+        
+          <Bowl/>
+        
         </Stage>
       </Suspense>
       <OrbitControls ref={ref} rotateSpeed={0.1} autoRotate autoRotateSpeed={0.1} minDistance={4.5} maxDistance={4.5} />
