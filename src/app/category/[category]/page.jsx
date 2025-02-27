@@ -18,13 +18,13 @@ export default function CategoryPage({ params }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosClient.post('', {
+        const response = await axiosClient.post('/filter', {
           "category": decodedCategory,
         });
         // console.log(response.data);
         setResponseData(response.data);
         // console.log("New Data:")
-        // console.log('Response Data:', responseData);
+        console.log('Response Data:', responseData);
 
       } catch (error) {
         console.error('Error:', error);

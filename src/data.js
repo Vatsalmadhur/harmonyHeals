@@ -41,4 +41,28 @@ export const categoryDetail = {
   }
 };
 
+export const innerFeels = [
+  "Pain",
+  "Headache",
+  "Stress",
+  "Anxiety",
+  "Depression",
+  "Emotional trauma",
+  "Insomnia",
+  "Fatigue",
+  "Muscle tension",
+  "Toxin buildup",
+  "Negative thought patterns",
+  "Fear",
+  "Guilt",
+  "Emotional blockages",
+  "Communication issues",
+  "Relationship conflicts",
+  "Low energy levels",
+  "Spiritual disconnection",
+  "Lack of focus",
+  "Mental fog",
+  "Intuition blockage"
+];
+
 

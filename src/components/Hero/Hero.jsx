@@ -7,7 +7,7 @@ import { CustomButtonV1 } from '../Common/CustomButton/CustomButtonV1'
 import { CustomButtonV2 } from '../Common/CustomButton/CustomButtonV2'
 import BowlView from '../BowlView/bowlView'
 import dynamic from "next/dynamic";
-
+import UserFeels from '../Forms/userFeels'
 export const Hero = () => {
   // GSAP animation for text elements
   useGSAP(() => {
@@ -20,6 +20,7 @@ export const Hero = () => {
 
   return (
     <div className="flex w-screen h-[90vh] justify-around m-0 p-0 items-center relative">
+      <UserFeels/>
       <div className="z-20 transform -rotate-90 origin-top-left leading-[80px]  w-[800px] h-[200px] absolute left-[200px] bottom-[-125px]">
         <p className="heroText text-8xl text-left customFont1 opacity-0">Ancient Sounds,</p>
         <p className="heroText text-8xl text-left customFont1 font-bold opacity-0">Modern wellness.</p>

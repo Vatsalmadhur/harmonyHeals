@@ -27,7 +27,7 @@ const AudioCard = (props) => {
       <div>
         {/* Play/Pause Button */}
         <button onClick={handlePlayPause} className="text-white">
-          {isPlaying ? <Pause /> : <Play />}132321
+          {isPlaying ? <Pause /> : <Play />}
         </button>
       </div>
 
