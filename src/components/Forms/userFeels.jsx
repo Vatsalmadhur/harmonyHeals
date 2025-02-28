@@ -2,7 +2,7 @@ import { useUser } from '@/context/UserContext';
 import { innerFeels } from '@/data';
 import { DayOrNight } from '@/utils'
 import { Card, Tag } from '@chakra-ui/react'
-import { X } from 'lucide-react';
+import { ChevronRightIcon, X } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import { CustomButtonV1 } from '../Common/CustomButton/CustomButtonV1';
 import { axiosClient } from '@/lib/axios/axiosClient';
@@ -16,6 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { CustomButtonV2 } from '../Common/CustomButton/CustomButtonV2';
 
 
 const userFeels = () => {
@@ -57,8 +58,10 @@ const userFeels = () => {
 
   return (
 
-    <Dialog>
-      <DialogTrigger>HarmonyHeals AI</DialogTrigger>
+    <Dialog defaultOpen >
+      <DialogTrigger className='border-2 pl-2 w-auto rounded-md flex items-center justify-between gap-1 ' >HarmonyHeals AI
+      <ChevronRightIcon width={20}/>
+      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogDescription>

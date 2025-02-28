@@ -14,14 +14,14 @@ export default function Home() {
   return (
       <>
 
-        <div style={{backgroundImage: "url('/assets/Bg5.jpg')"}} className='w-[100vw] h-[100vh] bg-cover bg-center flex flex-col items-center justify-center'>
+        <div style={{backgroundImage: "url('/assets/Bg5.jpg')"}} className='w-[100vw] h-[100vh] bg-cover bg-center bg-fixed flex flex-col items-center justify-center'>
         <Navbar/>
         <Hero/>
         </div>
         {/* <div className='w-[100vw] flex flex-col items-center justify-center'> */}
-        <Spacer />
+        {/* <Spacer /> */}
         <About/>
-        <Spacer2 />
+        {/* <Spacer2 /> */}
         <Services/>
         <Spacer />
         <Contact/>
