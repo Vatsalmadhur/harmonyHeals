@@ -58,7 +58,7 @@ const userFeels = () => {
 
   return (
 
-    <Dialog defaultOpen >
+    <Dialog  >
       <DialogTrigger className='border-2 pl-2 w-auto rounded-md flex items-center justify-between gap-1 ' >HarmonyHeals AI
       <ChevronRightIcon width={20}/>
       </DialogTrigger>

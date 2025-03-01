@@ -25,13 +25,15 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[url('/assests/back.jpg')] text-white flex flex-col items-center justify-center">
+    <>
+    <div className="min-h-screen  text-primary-white flex flex-row items-center lg:justify-end justify-center relative">
+      <img src="/assets/b21.svg"  className=" absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-200px]  md:rounded-[50px]  sm:top-[-100px] rounded-b-[40px] rounded-bl-[40px] top-0 left-0 " />
       <Head>
-        <title>Login</title>
+        <title>Login to your account</title>
         <meta name="description" content="Login page" />
       </Head>
-      <main className="w-[400px]  max-w-sm border-[1px] p-10 rounded-xl ">
-        <h1 className="text-3xl font-bold mb-6 text-center">Login</h1>
+      <main className="w-[450px] rounded-xl mx-5 ">
+        <h1 className="text-3xl font-bold mb-6 text-center  text-primary-white ">Login to your account</h1>
         <form
           className="flex flex-col gap-4"
           onSubmit={handleSubmit}
@@ -46,7 +48,7 @@ export default function Login() {
             <input
               type="email"
               id="email"
-              className="w-full px-4 py-2 border border-white bg-black text-white rounded focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full px-4 py-2 border border-white bg-transparent  text-primary-white rounded focus:outline-none focus:ring-2 focus:ring-white"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -62,7 +64,7 @@ export default function Login() {
             <input
               type="password"
               id="password"
-              className="w-full px-4 py-2 border border-white bg-black text-white rounded focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full px-4 py-2 border border-white bg-transparent text-primary-white rounded focus:outline-none focus:ring-2 focus:ring-white"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -70,28 +72,29 @@ export default function Login() {
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-white text-black font-semibold rounded hover:bg-gray-200 transition"
+            className="w-full py-2 bg-primary-white text-black font-semibold rounded hover:bg-gray-200 transition"
           >
             Login
           </button>
         </form>
-        <p className="text-center mt-4">or</p>
+        <p className="text-center mt-2 ">or</p>
         <button
           onClick={googleLogin}
-          className="w-full py-2 mt-2 border border-white rounded text-white hover:bg-gray-800 transition"
+          className="w-full py-2 mt-2 border border-white rounded text-primary-white hover:bg-gray-800 transition"
         >
           Sign in with Google
         </button>
-        <p className="text-white text-sm text-center">
+        <p className="text-primary-white text-sm mt-2 text-center">
       New to Harmony Heals?{" "}
       <Link
         href="/signup"
-        className="text-white underline hover:text-blue-300 transition"
+        className="text-primary-white underline hover:text-primary-white/10 transition"
       >
         Signup here
       </Link>
       </p>
       </main>
     </div>
+    </>
   );
 }

@@ -56,7 +56,10 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+				'primary-black': '#161f1f',
+				'primary-white': '#DAD7CA',
+				'primary-green': '#6D8E9D',
   		}
   	}
   },
