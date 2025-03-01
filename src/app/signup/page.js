@@ -4,8 +4,29 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "@/lib/firebase/config";
 import { doc, setDoc } from "firebase/firestore";
 import Link from "next/link";
-
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 const Signup = () => {
+  useGSAP(()=>{
+    gsap.fromTo('#img',
+    {
+      opacity:0,
+    },
+    {
+      opacity:1,
+      duration:2
+    }
+    )
+    gsap.fromTo('#form',
+    {
+      opacity:0,
+    },
+    {
+      opacity:1,
+      duration:1
+    }
+    )
+  })
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [Fname, setFname] = useState("");
@@ -39,10 +60,11 @@ const Signup = () => {
     <div className="min-h-screen text-primary-white flex flex-row items-center lg:justify-end justify-center relative">
   <img
     src="/assets/b21.svg"
+    id="img"
     className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-250px] md:rounded-[50px] sm:top-[-110px] rounded-b-[40px] rounded-bl-[40px] top-[-50px] left-0"
     alt="Background"
   />
-  <main className="w-[450px] rounded-xl mx-5">
+  <main className="w-[450px] rounded-xl mx-5" id="form">
     <h1 className="text-3xl font-bold mb-6 text-center text-primary-white">Create your account</h1>
     <form
       onSubmit={handleSignup}
@@ -111,7 +133,7 @@ const Signup = () => {
 
       <p className="text-primary-white text-sm text-center mt-2">
         Already have an account? {" "}
-        <Link href="/login" className="text-primary-white underline hover:text-primary-white/10 transition">
+        <Link href="/login" className="text-primary-white underline hover:text-white transition">
           Login here
         </Link>
       </p>

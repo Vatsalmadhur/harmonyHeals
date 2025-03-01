@@ -59,7 +59,7 @@ module.exports = {
   			},
 				'primary-black': '#161f1f',
 				'primary-white': '#DAD7CA',
-				'primary-green': '#6D8E9D',
+				'primary-green': '#648997',
   		}
   	}
   },

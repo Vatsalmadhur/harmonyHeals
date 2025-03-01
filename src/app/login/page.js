@@ -5,8 +5,34 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase/config";
 import { googleLogin } from "@/common/googleLogin";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useIsMobile } from "@/utils";
 
 export default function Login() {
+  useGSAP(()=>{
+    gsap.fromTo('#img',
+    {
+      opacity:0,
+    },
+    {
+      opacity:1,
+      duration:1
+    }
+    )
+    gsap.fromTo('#form',
+    {
+      opacity:0,
+    },
+    {
+      opacity:1,
+      duration:2
+    }
+    )
+  })
+
+  const isMobile=useIsMobile();
+  console.log(isMobile)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -27,12 +53,12 @@ export default function Login() {
   return (
     <>
       <div className="min-h-screen  text-primary-white flex flex-row items-center lg:justify-end justify-center relative">
-        <img src="/assets/b21.svg" className=" absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-200px]  md:rounded-[50px]  sm:top-[-100px] rounded-b-[40px] rounded-bl-[40px] top-0 left-0 " />
+        <img src="/assets/b21.svg" id="img" className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-200px]  md:rounded-[50px]  sm:top-[-100px] rounded-b-[40px] rounded-bl-[40px] top-0 left-0 " />
         <Head>
           <title>Login to your account</title>
           <meta name="description" content="Login page" />
         </Head>
-        <main className="w-[450px] rounded-xl mx-5 ">
+        <main id="form" className="opacity-0 w-[450px] rounded-xl mx-5 ">
           <h1 className="text-3xl font-bold mb-6 text-center  text-primary-white ">Login to your account</h1>
           <form
             className="flex flex-col gap-4"
@@ -91,7 +117,7 @@ export default function Login() {
             New to Harmony Heals?{" "}
             <Link
               href="/signup"
-              className="text-primary-white underline hover:text-primary-white/10 transition"
+              className="text-primary-white underline hover:text-white transition"
             >
               Signup here
             </Link>
