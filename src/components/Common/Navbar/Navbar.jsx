@@ -5,9 +5,27 @@ import { Image, Text, Button, HStack, VStack, Popover, PopoverTrigger, PopoverCo
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase/config";
 import { CustomButtonV1 } from "../CustomButton/CustomButtonV1";
-
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 
 export const Navbar = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    const animate = gsap.from('#navbar', {
+      y: -100,
+      width: 0,
+      paused: true,
+      duration: 0.1
+    }).progress(1)
+
+    ScrollTrigger.create({
+      start: "0 top",
+      end: "max",
+      scrub: true,
+      onUpdate: (self) => { self.direction === -1 ? animate.play() : animate.reverse() }
+    })
+  })
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUser(); // Access user from context
   const router = useRouter();
@@ -27,11 +45,11 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="w-[60%] bg-primary-green rounded-full min-h-[50px] h-auto border-b-2 flex items-center justify-around ">
-      <div>
-        {/* <img className="max-w-14  max-h-15" src="/assets/logo.png" alt="" /> */}
-        <h1 className="text-xl ">Harmony Heals</h1>
-      </div>
+    <div id="navbar" className="lg:w-[70%] md:w-[80%] w-[95%] bg-primary-green rounded-full min-h-[50px] h-auto  flex items-center justify-between fixed top-5  z-10 border-2 border-primary-white ">
+      {/* <div> */}
+      {/* <img className="max-w-14  max-h-15" src="/assets/logo.png" alt="" /> */}
+      <h1 className="text-xl text-primary-black font-bold customFont1 ml-3">HarmonyHeals</h1>
+      {/* </div> */}
 
       {/* Menu Items */}
       {/* <div className="gap-[100px] flex-row h-auto hidden md:flex">
@@ -40,7 +58,7 @@ export const Navbar = () => {
         <a href="#services" className="mid-nav-txt text-2xl">Services</a>
         <a href="#contact" className="mid-nav-txt text-2xl">Contact</a>
       </div> */}
-      <div className="gap-[100px] flex-row h-auto hidden md:flex">
+      <div className="lg:gap-[100px] md:gap-[60px]  flex-row h-auto  hidden md:flex">
         {[
           { label: "Home", link: "#home" },
           { label: "About", link: "#about" },
@@ -50,7 +68,7 @@ export const Navbar = () => {
           <a
             key={index}
             href={item.link}
-            className="mid-nav-txt text-lg transition-transform transform hover:text-primary-black duration-300"
+            className="mid-nav-txt text-lg text-primary-black customFont2 transition-transform transform hover:text-primary-black duration-300"
           >
             {item.label}
           </a>
@@ -63,16 +81,16 @@ export const Navbar = () => {
           <Popover modal >
             <PopoverTrigger asChild>
               <Image
-              src={user.photoURL || "/default-avatar.png"}
-               alt=""
-               className="w-10 h-10 rounded-full cursor-pointer"
-            />
+                src={user.photoURL || "/default-avatar.png"}
+                alt=""
+                className="w-10 h-10 mr-1 rounded-full cursor-pointer"
+              />
             </PopoverTrigger>
             <PopoverContent className="w-10 text-primary-black flex items-center justify-center gap-2 p-5 focus:border-none " >
-                <p className="text-xl font-semibold" >{user.displayName}</p>
-                <p>{user.email}</p>
-            <CustomButtonV1 content="Logout" onClick={handleLogout} />
-              </PopoverContent>
+              <p className="text-xl font-semibold" >{user.displayName}</p>
+              <p>{user.email}</p>
+              <CustomButtonV1 content="Logout" onClick={handleLogout} />
+            </PopoverContent>
           </Popover>
 
 
@@ -87,9 +105,14 @@ export const Navbar = () => {
 
           // </div>
 
-        ) : (
-          <CustomButtonV1 content="Login" onClick={handleLoginRedirect} />
-        )}
+          ) :
+          (
+          <div className=" mr-1" >
+          <CustomButtonV1 content="Login" rounded="full" onClick={handleLoginRedirect} />
+          </div>
+
+          )
+        }
       </div>
     </div>
   );

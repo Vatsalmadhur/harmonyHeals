@@ -31,7 +31,7 @@ export const Contact = () => {
               <img src="/assets/b1.svg" className="w-[450px] " />
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center h-auto ">
+            <form action='/contact' onSubmit={handleSubmit} className="flex flex-col items-center justify-center h-auto ">
               <h2 className="text-4xl text-[#648997] font-bold text-center mb-6">Contact us</h2>
               <div className="max-w-md mx-auto space-y-3 relative">
 

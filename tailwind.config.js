@@ -60,6 +60,7 @@ module.exports = {
 				'primary-black': '#161f1f',
 				'primary-white': '#DAD7CA',
 				'primary-green': '#648997',
+				'secondary-green':'#75959E'
   		}
   	}
   },

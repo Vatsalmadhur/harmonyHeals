@@ -13,11 +13,10 @@ import { Spacer2 } from '@/components/Common/Spacers/Spacer2';
 export default function Home() {
   return (
       <>
-
-        <div style={{backgroundImage: "url('/assets/Bg5.jpg')"}} className='w-[100vw] h-[100vh] bg-cover bg-center bg-fixed flex flex-col items-center justify-center'>
+        <div className='w-[100vw] h-auto  flex flex-col items-center justify-center'>
         <Navbar/>
         <Hero/>
-        </div>
+        {/* </div> */}
         {/* <div className='w-[100vw] flex flex-col items-center justify-center'> */}
         {/* <Spacer /> */}
         <About/>
@@ -33,7 +32,7 @@ export default function Home() {
         <Contact/>
         <Spacer />
         <Spacer /> */}
-        {/* </div> */}
+        </div>
         <Footer/>
 
 
