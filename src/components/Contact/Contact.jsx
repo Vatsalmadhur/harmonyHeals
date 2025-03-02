@@ -26,13 +26,13 @@ export const Contact = () => {
   return (
     <>
       <div className="font-[sans-serif] h-screen w-screen p-4 bg-primary-green flex items-center justify-center">
-          <div className="grid md:grid-cols-2 h-[80%] w-[90%]  py-8 px-6  bg-white rounded-xl">
+          <div className="grid lg:grid-cols-2 h-auto  w-[90%]  py-8 px-6  bg-white rounded-xl">
             <div className="text-center sm:flex flex-col items-center justify-center  hidden ">
               <img src="/assets/b1.svg" className="w-[450px] " />
             </div>
 
             <form action='/contact' onSubmit={handleSubmit} className="flex flex-col items-center justify-center h-auto ">
-              <h2 className="text-4xl text-[#648997] font-bold text-center mb-6">Contact us</h2>
+              <h2 className="text-4xl text-primary-green font-bold text-center my-6">Contact us</h2>
               <div className="max-w-md mx-auto space-y-3 relative">
 
                 <input type='text' placeholder='Name'
