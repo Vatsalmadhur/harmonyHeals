@@ -45,7 +45,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div id="navbar" className="lg:w-[70%] md:w-[80%] w-[95%] bg-primary-green rounded-full min-h-[50px] h-auto  flex items-center justify-between fixed top-5  z-10 border-2 border-primary-white ">
+    <div id="navbar" className="lg:w-[70%] md:w-[80%] w-[95%] bg-primary-green rounded-full min-h-[50px] h-auto  flex items-center justify-between fixed top-5  z-20 border-2 border-primary-white ">
       {/* <div> */}
       {/* <img className="max-w-14  max-h-15" src="/assets/logo.png" alt="" /> */}
       <h1 className="text-xl text-primary-black font-bold customFont1 ml-3">HarmonyHeals</h1>

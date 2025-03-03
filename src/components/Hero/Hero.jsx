@@ -25,7 +25,7 @@ export const Hero = () => {
   })
   const router = useRouter()
   return (
-    <div style={{backgroundImage: "url('/assets/Bg5.jpg')"}} className="flex flex-col w-screen h-[100vh] justify-center m-0 p-0 items-center relative">
+    <div style={{backgroundImage: "url('/assets/Bg5.jpg')"}} className="flex flex-col w-screen h-[100vh] justify-center m-0 p-0 items-center relative ">
 
       <div className="flex flex-col gap-5 items-center w-auto ">
         <div className='flex flex-col items-center '>

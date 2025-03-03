@@ -27,7 +27,7 @@ export const About = () => {
   return (
     <>
       <div className="bg-primary-green w-full relative ">
-        <div className="w-full h-[300px] py-5 overflow-hidden">
+        <div className="w-full sm:h-[300px] h-[200px]  sm:py-6 overflow-hidden">
           <img id="script1" src="/assets/script.svg" className="max-w-none h-full" />
         </div>
 
@@ -59,11 +59,11 @@ export const About = () => {
           </section>
 
           {/* Brain (Spline) Section */}
-          <section className=" lg:w-[40%] sm:block min-w-[300px]  hidden w-full  h-[600px]">
+          <section className=" lg:w-[40%] sm:block min-w-[300px]  hidden w-full h-[450px] ">
             <Brain />
           </section>
         </div>
-        <div className="w-full h-[300px] py-5 overflow-hidden">
+        <div className="w-full sm:h-[300px] h-[200px] sm:p-6  overflow-hidden">
           <img id="script2" src="/assets/script.svg" className="max-w-none h-full" />
         </div>
 

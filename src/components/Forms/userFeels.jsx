@@ -4,7 +4,6 @@ import { DayOrNight } from '@/utils'
 import { Card, Tag } from '@chakra-ui/react'
 import { ChevronRightIcon, X } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
-import { CustomButtonV1 } from '../Common/CustomButton/CustomButtonV1';
 import { axiosClient } from '@/lib/axios/axiosClient';
 import { useRouter } from 'next/navigation';
 
@@ -59,21 +58,21 @@ const userFeels = () => {
   return (
 
     <Dialog  >
-      <DialogTrigger className='border-2 pl-2 w-auto rounded-md flex items-center justify-between gap-1 ' >HarmonyHeals AI
+      <DialogTrigger className='pl-2 border-2 w-auto rounded-md flex items-center justify-between gap-1 ' >HarmonyHeals AI
       <ChevronRightIcon width={20}/>
       </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogDescription>
-            <p className='text-4xl'>Good {time},username</p>
-            <p>How do you feel today? </p>
+      <DialogContent className="bg-primary-black border-none">
+        <DialogHeader  >
+          <DialogDescription className="flex flex-col gap-2 items-center justify-center" >
+            <p className='text-4xl text-white'>Good {time},username</p>
+            <p className='text-xl'>How do you feel today? </p>
             {selectedTag.length > 0 && (
               <div>
                 {/* <p>Hmm, so you're suffering from:</p> */}
                 <div className="h-auto text-center">
                   {selectedTag.map((item) => (
                     item && (
-                      <Tag key={item} margin={1} cursor="pointer">
+                      <Tag key={item} margin={1} cursor="pointer" bgColor="#DAD7CA">
                         {item}
                         <X size={16} onClick={() => removeTag(item)} />
                       </Tag>
@@ -84,13 +83,13 @@ const userFeels = () => {
             )}
 
 
-            <div className='text-center'>
+            <div className='text-center pb-2'>
               {innerFeels.map((item) => (
-                <Tag key={item} onClick={() => handleChange(item)} margin={1} cursor="pointer" >{item}</Tag>
+                <Tag key={item}  bgColor="#DAD7CA" onClick={() => handleChange(item)} margin={1} cursor="pointer" >{item}</Tag>
 
               ))}
             </div>
-            <CustomButtonV1 onClick={handleClick} content="Lets begin your healing journey" />
+            <CustomButtonV2 onClick={handleClick} content="Lets begin your healing journey" />
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

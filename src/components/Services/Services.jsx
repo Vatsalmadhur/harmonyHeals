@@ -7,7 +7,7 @@ export const Services = () => {
     <>
       <section
         id="services"
-        className="relative w-[100vw] h-screen bg-cover bg-center flex flex-col justify-center items-center text-white bg-[#1C2828]"
+        className="relative w-[100vw] h-auto bg-cover bg-center flex flex-col justify-center items-center text-white bg-[#1C2828]"
       >
         <Heading text="Our Services" />
         {/* Services Cards */}
