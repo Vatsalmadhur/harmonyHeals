@@ -10,7 +10,9 @@ export const CustomButtonV2 = (props) => {
         width='auto'
         color="white"
         textAlign='center'
+        bg="transparent"
         _hover={{ color: 'black', bg: 'white' }} // Change text and border color on hover
+        onClick={props.onClick}
       >
         {props.content}
         <ChevronRightIcon width='6' height='6' />

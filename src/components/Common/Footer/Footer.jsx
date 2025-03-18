@@ -2,11 +2,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-[#1c2828] text-white py-8">
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-between items-center">
+        <div className="flex flex-wrap justify-between  items-center">
           {/* Logo and Description */}
-          <div className="w-full md:w-1/3 mb-6 md:mb-0">
+          <div className="w-full md:w-1/3 mb-6 md:mb-0  md:text-left text-center">
             <h1 className="text-2xl font-bold">Harmony Heals</h1>
             <p className="mt-2 text-sm">
               Bringing balance to your life with binaural beats and healing
@@ -42,7 +42,7 @@ function Footer() {
 
           {/* Social Media Links */}
           <div className="w-full md:w-1/3 flex justify-end">
-            <ul className="flex space-x-6">
+            <ul className="flex items-center justify-center  w-full space-x-6">
               <li>
                 <a href="#" className="hover:text-gray-400">
                   Facebook

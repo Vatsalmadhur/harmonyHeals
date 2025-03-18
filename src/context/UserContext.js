@@ -1,15 +1,18 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/lib/firebase/config"; // Ensure this points to your Firebase config
+import { auth } from "@/lib/firebase/config";
 
-// Create the context
 const UserContext = createContext();
-
-// Context Provider
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
+  const [userMood,setUserMood]=useState({});
+  // onAuthStateChanged(auth,(currUser)=>{
+  //   if(currUser){
+  //     setUser(currUser);
+  //     console.log(currUser);
+  //   }
+  // })
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser); // Set the user state
@@ -18,8 +21,12 @@ export const UserProvider = ({ children }) => {
     return () => unsubscribe(); // Clean up on unmount
   }, []);
 
+  useEffect(()=>{
+    console.log(userMood)
+  },[])
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, userMood,setUserMood }}>
       {children}
     </UserContext.Provider>
   );

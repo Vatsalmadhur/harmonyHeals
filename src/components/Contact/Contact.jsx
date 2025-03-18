@@ -1,33 +1,83 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from '../Common/Headings/Heading'
-
+import { Send } from 'lucide-react'
+import { axiosClient } from '@/lib/axios/axiosClient'
+import { ToastContainer, toast } from 'react-toastify';
 export const Contact = () => {
-    return (
-        <>
-        <section  id='contact'>
-            <Heading text="Contact Us" />
-            <div className='width-auto h-auto flex flex-row p-10 items-center justify-center' >
-                <div className='border-2 flex flex-row items-center justify-center '>
-                <div className='w-[200px] h-[50vh] bg-slate-100 ' ></div>
-                <div className='w-[700px] h-[50vh] bg-black flex items-center justify-center ' >
-                    <form action="" className='flex flex-col items-start justify-center gap-5 w-[650px] h-[45vh] '>
-                        <p className='text-4xl text-white customFont3' >Got suggestions or queries,<br />get in touch!</p>
-                        <div className='flex flex-col w-full' >
-                            <label htmlFor="" className='text-xl text-white ' >Name</label>
-                            <input name='name' className='customInput' required placeholder='Enter your name' />
-                        </div>
-                        <div className='flex flex-col w-full' >
-                            <label htmlFor="" className='text-xl text-white ' >E-mail</label>
-                            <input name='email' className='customInput' required placeholder='Enter your e-mail' />
-                        </div><div className='flex flex-col w-full' >
-                            <label htmlFor="" className='text-xl text-white ' >Your message</label>
-                            <textarea name='name' className='customInput' required placeholder='Enter your message' />
-                        </div>
-                    </form>
-                </div>
-                </div>
+  const [formData,setFormData]= useState([]);
+
+  const handleChange=(e)=>{
+    const {name,value}=e.target;
+    setFormData((prev)=>({
+      ...prev,
+      [name] : value
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const toastId = toast.loading('Sending Message...');
+      const response = await axiosClient.post('/contact', formData);
+      toast.update(toastId, {
+        render: 'Message sent!',
+        type: 'success',
+        isLoading: false,
+        autoClose: 3000,
+      });
+      console.log(response);
+    } catch (err) {
+      toast.update(toastId, {
+        render: 'Message sending failed 🤯',
+        type: 'error',
+        isLoading: false,
+        autoClose: 5000,
+      });
+      console.error(err);
+    }
+  };
+
+  const notify = () => toast("Wow so easy!");
+  return (
+    <>
+      <div className="font-[sans-serif] h-screen  w-screen bg-primary-green flex items-center justify-center">
+          <div className="grid lg:grid-cols-2 h-auto  w-[90%]  py-8 px-6  bg-white rounded-xl">
+            <div className="text-center sm:flex flex-col items-center justify-center  hidden md:mb-5 lg:mb-0 ">
+              <img src="/assets/b1.svg" className="w-[450px] " />
             </div>
-            </section>
-        </>
-    )
+
+            <form action='/contact' onSubmit={handleSubmit} className="flex flex-col items-center justify-center h-auto  ">
+              <h2 className="text-4xl text-primary-green font-bold text-center mb-6">Contact us</h2>
+              <div className="max-w-md mx-auto space-y-3 relative">
+
+                <input type='text' placeholder='Name'
+                  className="w-full text-primary-green bg-gray-100 rounded-md py-3 px-4 text-sm outline-none border border-gray-100 focus:border-[#648997] focus:bg-transparent transition-all"
+                  name='name'
+                  onChange={handleChange}
+                  />
+
+                <input type='email' placeholder='Email'
+                  className="w-full text-primary-green bg-gray-100 rounded-md py-3 px-4 text-sm outline-none border border-gray-100 focus:border-[#648997] focus:bg-transparent transition-all"
+                  name='email'
+                  onChange={handleChange}
+                   />
+                <textarea placeholder='Message' rows="6"
+                  className="w-full bg-gray-100 text-primary-green rounded-md px-4 text-sm pt-3 outline-none border border-gray-100 focus:border-[#648997] focus:bg-transparent transition-all"
+                  name='message'
+                  onChange={handleChange}></textarea>
+
+                <button
+                type='submit'
+                // onClick={notify}
+                  className="text-white w-full relative bg-[#648997] hover:bg-[#648997] rounded-md text-sm px-6 py-3 !mt-6 flex items-center justify-center gap-2">
+                    <Send/>
+                  Send Message
+                </button>
+                <ToastContainer theme='dark' />
+              </div>
+            </form>
+          </div>
+        </div>
+    </>
+  )
 }

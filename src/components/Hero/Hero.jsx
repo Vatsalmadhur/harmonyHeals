@@ -6,30 +6,57 @@ import { useRouter } from 'next/navigation'
 import { CustomButtonV1 } from '../Common/CustomButton/CustomButtonV1'
 import { CustomButtonV2 } from '../Common/CustomButton/CustomButtonV2'
 import BowlView from '../BowlView/bowlView'
+import dynamic from "next/dynamic";
+import UserFeels from '../Forms/userFeels'
 export const Hero = () => {
-  // GSAP animation for text elements
+  gsap.registerPlugin("ScrollTrigger");
   useGSAP(() => {
-    gsap.to('.heroText', { opacity: 1, duration: 1, ease: 'power3.in' })
-    gsap.to('.subHeroText', { opacity: 1, duration: 1, ease: 'power3.in' })
+    // gsap.to('.heroText', { opacity: 1, duration: 1,left:100, ease: 'power3.in' })
+    // gsap.to('.subHeroText', { opacity: 1, duration: 1, ease: 'power3.in' })
+    gsap.fromTo(".heroText",
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease:"power4.out",stagger:0.1 }
+    );
+    gsap.to(".heroBtns",{
+      opacity:1,
+      delay:1,
+      duration:1
+    })
+    gsap.to('.bgimg',
+    {
+      scale:1.1,
+      scrollTrigger:{
+        trigger:'.bgimg',
+        start:"top top",
+        scrub:true,
+        pin:true
+      }
+    })
   })
-
-  // Next.js router hook to navigate programmatically
   const router = useRouter()
-
   return (
-    <div className="flex w-screen h-[90vh] justify-around m-0 p-0 items-center relative">
-      <div className="z-20 leading-[80px] transform -rotate-90 origin-top-left w-[800px] h-[200px] absolute left-[200px] bottom-[-150px]">
-        <p className="heroText text-8xl text-left customFont1 opacity-0">Ancient Sounds,</p>
-        <p className="heroText text-8xl text-left customFont1 font-bold opacity-0">Modern wellness.</p>
-        <p className="heroText text-xl text-left opacity-0">Sound Healing and Beyond.</p>
+    <div  className="flex flex-col w-screen h-[100vh] justify-center m-0 p-0 items-center relative">
+      <div style={{backgroundImage: "url('/assets/background.svg')"}} className='w-screen h-screen absolute bgimg'></div>
+
+      <div className="flex flex-col gap-5 items-center w-auto ">
+        <div className='flex flex-col items-center '>
+          <p className="heroText text-center lg:text-9xl md:text-7xl text-6xl customFont1 opacity-0  ">Ancient Sounds,</p>
+          <p className="heroText lg:text-8xl md:text-6xl text-5xl  text-center customFont1 font-bold opacity-0">Modern wellness.</p>
+        </div>
+        <p className="heroText text-lg md:text-2xl  text-center opacity-0">Sounds for the Mind, Body and Soul.</p>
+        <div className='flex justify-center gap-10 w-[400px] opacity-0 heroBtns z-10'>
+          <CustomButtonV1 content="Try for free" onClick={() => router.push("/category")} />
+          <UserFeels />
+        </div>
       </div>
+
 
       <div>
         {/* You can uncomment this if needed */}
         {/* <BowlView/> */}
       </div>
 
-      <div className="w-[400px] h-[400px] absolute right-[100px] bottom-[40px]">
+      {/* <div className="w-[400px] h-[400px] absolute right-[100px] bottom-[40px]">
         <p className="text-xl font-semibold subHeroText opacity-0">
           Did you know about the <strong className="customFont1">'Tibetan Singing Bowls'?</strong>
         </p>
@@ -40,7 +67,7 @@ export const Hero = () => {
           <CustomButtonV2 content="Learn More" />
           <CustomButtonV1 content="Try for free" onClick={() => router.push("/category")} />
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

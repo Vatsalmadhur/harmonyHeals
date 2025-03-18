@@ -4,8 +4,29 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "@/lib/firebase/config";
 import { doc, setDoc } from "firebase/firestore";
 import Link from "next/link";
-
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 const Signup = () => {
+  useGSAP(()=>{
+    gsap.fromTo('#img',
+    {
+      opacity:0,
+    },
+    {
+      opacity:1,
+      duration:2
+    }
+    )
+    gsap.fromTo('#form',
+    {
+      opacity:0,
+    },
+    {
+      opacity:1,
+      duration:1
+    }
+    )
+  })
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [Fname, setFname] = useState("");
@@ -36,63 +57,90 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
+    <div className="min-h-screen text-primary-white flex flex-row items-center lg:justify-end justify-center relative">
+  <img
+    src="/assets/b21.svg"
+    id="img"
+    className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-250px] md:rounded-[50px] sm:top-[-110px] rounded-b-[40px] rounded-bl-[40px] top-[-50px] left-0 z-[-1]"
+    alt="Background"
+  />
+  <main className="w-[450px] rounded-xl mx-5" id="form">
+    <h1 className="text-3xl font-bold mb-6 text-center text-primary-white">Create your account</h1>
     <form
       onSubmit={handleSignup}
-      className="w-full max-w-sm mx-auto flex flex-col gap-4 bg-black text-white p-6 rounded-xl shadow-lg border-2"
+      className="flex flex-col gap-4"
     >
-      <h2 className="text-3xl font-bold mb-4 text-center">Signup</h2>
-      <input
-        type="text"
-        value={Fname}
-        onChange={(e) => setFname(e.target.value)}
-        placeholder="First Name"
-        className="w-full px-4 py-2 border border-white bg-black text-white rounded focus:outline-none focus:ring-2 focus:ring-white"
-        required
-      />
-      <input
-        type="text"
-        value={Lname}
-        onChange={(e) => setLname(e.target.value)}
-        placeholder="Last Name"
-        className="w-full px-4 py-2 border border-white bg-black text-white rounded focus:outline-none focus:ring-2 focus:ring-white"
-      />
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        className="w-full px-4 py-2 border border-white bg-black text-white rounded focus:outline-none focus:ring-2 focus:ring-white"
-        required
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        className="w-full px-4 py-2 border border-white bg-black text-white rounded focus:outline-none focus:ring-2 focus:ring-white"
-        required
-      />
+      <div className="flex flex-col gap-1">
+        <label htmlFor="fname" className="text-sm font-semibold">First Name</label>
+        <input
+          type="text"
+          id="fname"
+          value={Fname}
+          onChange={(e) => setFname(e.target.value)}
+          placeholder="First Name"
+          className="w-full px-4 py-2 border border-white bg-transparent text-primary-white rounded focus:outline-none focus:ring-2 focus:ring-white"
+          required
+        />
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <label htmlFor="lname" className="text-sm font-semibold">Last Name</label>
+        <input
+          type="text"
+          id="lname"
+          value={Lname}
+          onChange={(e) => setLname(e.target.value)}
+          placeholder="Last Name"
+          className="w-full px-4 py-2 border border-white bg-transparent text-primary-white rounded focus:outline-none focus:ring-2 focus:ring-white"
+        />
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <label htmlFor="email" className="text-sm font-semibold">Email</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="w-full px-4 py-2 border border-white bg-transparent text-primary-white rounded focus:outline-none focus:ring-2 focus:ring-white"
+          required
+        />
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <label htmlFor="password" className="text-sm font-semibold">Password</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="w-full px-4 py-2 border border-white bg-transparent text-primary-white rounded focus:outline-none focus:ring-2 focus:ring-white"
+          required
+        />
+      </div>
+
       <button
         type="submit"
-        className="w-full py-2 bg-white text-black font-semibold rounded hover:bg-gray-200 transition"
+        className="w-full py-2 bg-primary-white text-black font-semibold rounded hover:bg-gray-200 transition"
       >
         Signup
       </button>
-      {error && <p className="text-red-500 text-sm">{error}</p>}
-      {success && <p className="text-green-500 text-sm">{success}</p>}
 
-      <p className="text-white text-sm text-center">
-      New to Harmony Heals?{" "}
-      <Link
-        href="/login"
-        className="text-white underline hover:text-blue-300 transition"
-      >
-        Login here
-      </Link>
+      {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+      {success && <p className="text-green-500 text-sm text-center">{success}</p>}
+
+      <p className="text-primary-white text-sm text-center mt-2">
+        Already have an account? {" "}
+        <Link href="/login" className="text-primary-white underline hover:text-white transition">
+          Login here
+        </Link>
       </p>
     </form>
-    </div>
+  </main>
+</div>
+
   );
 };
 

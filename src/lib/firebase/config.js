@@ -3,6 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 import {getAuth} from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore';
 import { doc,setDoc } from "firebase/firestore";
+import { isSupported } from 'firebase/messaging';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,8 +17,15 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
+// const analytics = getAnalytics(app);
+let analytics = null;
+if (typeof window !== "undefined") {
+  isSupported().then((supported) => {
+    if (supported) {
+      analytics = getAnalytics(app);
+    }
+  });
+}
 export const db=getFirestore(app);
 export const auth=getAuth();
-export default app;
+export default {analytics};

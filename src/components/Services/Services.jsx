@@ -1,24 +1,56 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import Heading from "../Common/Headings/Heading";
+import { servicesData } from "@/data";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Services = () => {
+  const serviceRefs = useRef([]);
+
+  useGSAP(() => {
+    gsap.to(serviceRefs.current, {
+      opacity: 1,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: "#services",
+        scrub: 1,
+        start: "top 60%",
+        end: "top 20%",
+      },
+    });
+  });
+
   return (
     <>
-      <section id="services">
+      <section
+        id="services"
+        className="relative w-full h-auto bg-cover bg-center flex flex-col justify-center items-center text-white bg-primary-black"
+      >
         <Heading text="Our Services" />
-        <div className="w-[100%] min-h-[70vh] h-auto flex items-center flex-wrap justify-center gap-10 mt-10 ">
-          {[
-            "Solfeggio Frequency",
-            "Chakra",
-            "Power Nap",
-            "Binaural Beats",
-          ].map((item, index) => (
+
+        {/* Services Cards */}
+        <div className="w-full min-h-[70vh] flex items-center flex-wrap justify-center gap-10 mt-10">
+          {servicesData.map((item, index) => (
+            <a href={process.env.BASE_URL+`${item.url}`}>
             <div
-              className={`w-[400px] h-[250px] bg-slate-100 rounded-xl text-4xl text-black flex items-center justify-center`}
+              ref={(el) => (serviceRefs.current[index] = el)}
               key={index}
+              className="rounded-xl text-5xl shadow-lg relative overflow-hidden transition-transform duration-500 ease-in-out opacity-0"
             >
-              {item}
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-[300px] rounded-xl ransition-transform duration-500 ease-in-out hover:scale-105 hover:opacity-80"
+              />
+              <p className="absolute bottom-[20px] pl-5 text-primary-white">
+                {item.title}
+              </p>
             </div>
+            </a>
           ))}
         </div>
       </section>
