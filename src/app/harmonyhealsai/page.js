@@ -2,6 +2,7 @@
 import AudioCard from '@/components/Common/AudioCard/AudioCard'
 import { Spacer } from '@/components/Common/Spacers/Spacer'
 import {  useUser } from '@/context/UserContext'
+import ProtectedRoute from '@/lib/ProtectedRoute/ProtectedRoute'
 import React from 'react'
 
 const page = () => {
@@ -21,7 +22,6 @@ const page = () => {
     <p>{userMood.message}</p>
     <p> We also suggest you to listen to : </p>
     <AudioCard title={userMood.suggestion} duration={userMood.sduration}/>
-
     </div>
     </>
   )

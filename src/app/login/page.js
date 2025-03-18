@@ -53,7 +53,7 @@ export default function Login() {
   return (
     <>
       <div className="min-h-screen  text-primary-white flex flex-row items-center lg:justify-end justify-center relative">
-        <img src="/assets/b21.svg" id="img" className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-200px]  md:rounded-[50px]  sm:top-[-100px] rounded-b-[40px] rounded-bl-[40px] top-0 left-0 " />
+        <img src="/assets/b21.svg" id="img" className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-200px]  md:rounded-[50px]  sm:top-[-100px] rounded-b-[40px] rounded-bl-[40px] top-0 left-0 z-[-1] " />
         <Head>
           <title>Login to your account</title>
           <meta name="description" content="Login page" />

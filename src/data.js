@@ -65,4 +65,26 @@ export const innerFeels = [
   "Intuition blockage"
 ];
 
+export const servicesData=[
+  {
+    "title": "Solfeggio",
+    "img": "/assets/tb1.svg",
+    "url": "category/Solfeggio Frequency"
+  },
+  {
+    "title": "Chakra",
+    "img": "/assets/chakra1.svg",
+    "url": "category/Chakra"
+  },
+  {
+    "title": "Power Nap",
+    "img": "/assets/sleep.svg",
+    "url": "category/Power Nap"
+  },
+  {
+    "title": "Sleep Cycle",
+    "img": "/assets/tb2.svg",
+    "url": "category/Sleep Cycle"
+  }
+]
 

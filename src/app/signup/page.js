@@ -61,7 +61,7 @@ const Signup = () => {
   <img
     src="/assets/b21.svg"
     id="img"
-    className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-250px] md:rounded-[50px] sm:top-[-110px] rounded-b-[40px] rounded-bl-[40px] top-[-50px] left-0"
+    className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-250px] md:rounded-[50px] sm:top-[-110px] rounded-b-[40px] rounded-bl-[40px] top-[-50px] left-0 z-[-1]"
     alt="Background"
   />
   <main className="w-[450px] rounded-xl mx-5" id="form">

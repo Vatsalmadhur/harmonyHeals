@@ -23,7 +23,7 @@ html{
 .body{
     background-color: #161f1f;
     color: white;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .customInput{

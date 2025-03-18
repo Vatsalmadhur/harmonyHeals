@@ -9,7 +9,7 @@ import BowlView from '../BowlView/bowlView'
 import dynamic from "next/dynamic";
 import UserFeels from '../Forms/userFeels'
 export const Hero = () => {
-  // GSAP animation for text elements
+  gsap.registerPlugin("ScrollTrigger");
   useGSAP(() => {
     // gsap.to('.heroText', { opacity: 1, duration: 1,left:100, ease: 'power3.in' })
     // gsap.to('.subHeroText', { opacity: 1, duration: 1, ease: 'power3.in' })
@@ -17,15 +17,26 @@ export const Hero = () => {
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.5, ease:"power4.out",stagger:0.1 }
     );
-    gsap.to("#btns",{
+    gsap.to(".heroBtns",{
       opacity:1,
       delay:1,
       duration:1
     })
+    gsap.to('.bgimg',
+    {
+      scale:1.1,
+      scrollTrigger:{
+        trigger:'.bgimg',
+        start:"top top",
+        scrub:true,
+        pin:true
+      }
+    })
   })
   const router = useRouter()
   return (
-    <div style={{backgroundImage: "url('/assets/Bg5.jpg')"}} className="flex flex-col w-screen h-[100vh] justify-center m-0 p-0 items-center relative ">
+    <div  className="flex flex-col w-screen h-[100vh] justify-center m-0 p-0 items-center relative">
+      <div style={{backgroundImage: "url('/assets/background.svg')"}} className='w-screen h-screen absolute bgimg'></div>
 
       <div className="flex flex-col gap-5 items-center w-auto ">
         <div className='flex flex-col items-center '>
@@ -33,7 +44,7 @@ export const Hero = () => {
           <p className="heroText lg:text-8xl md:text-6xl text-5xl  text-center customFont1 font-bold opacity-0">Modern wellness.</p>
         </div>
         <p className="heroText text-lg md:text-2xl  text-center opacity-0">Sounds for the Mind, Body and Soul.</p>
-        <div className='flex justify-center gap-10 w-[400px] opacity-0' id='btns'>
+        <div className='flex justify-center gap-10 w-[400px] opacity-0 heroBtns z-10'>
           <CustomButtonV1 content="Try for free" onClick={() => router.push("/category")} />
           <UserFeels />
         </div>

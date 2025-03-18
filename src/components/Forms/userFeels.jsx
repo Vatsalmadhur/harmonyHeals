@@ -16,6 +16,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { CustomButtonV2 } from '../Common/CustomButton/CustomButtonV2';
+import { CustomButtonV1 } from '../Common/CustomButton/CustomButtonV1';
+import { toast } from 'react-toastify';
 
 
 const userFeels = () => {
@@ -24,6 +26,7 @@ const userFeels = () => {
   const { user } = useUser();
   const [selectedTag, setSelectedTag] = useState([""]);
   const { setUserMood } = useUser();
+  const [open, setOpen] = useState(false);
   const handleChange = (item) => {
 
     if (!selectedTag.includes(item)) {
@@ -35,37 +38,45 @@ const userFeels = () => {
   }
   let finalData = "";
   const handleClick = async () => {
-    console.log("clicked")
-    try {
-      const res = await axiosClient.post('/geminicat',
-        {
-          "userfeels": selectedTag,
-          "username": user.displayName
-        })
-      const temp = res.data.message.replace(/```json|```/g, '');
-      console.log(temp);
+      try {
+        const res = await axiosClient.post('/geminicat',
+          {
+            "userfeels": selectedTag,
+            "username": user.displayName
+          })
+        const temp = res.data.message.replace(/```json|```/g, '');
+        console.log(temp);
 
-      finalData = JSON.parse(temp);
-      setUserMood(finalData)
-      console.log(finalData)
-      router.push('/harmonyhealsai')
-    }
-    catch (error) {
-      console.log("error", error);
-    }
+        finalData = JSON.parse(temp);
+        setUserMood(finalData)
+        console.log(finalData)
+        router.push('/harmonyhealsai')
+      }
+      catch (error) {
+        console.log("error", error);
+      }
   }
 
   return (
-
-    <Dialog  >
+    <Dialog open={open} onOpenChange={() => {
+      if (user) {
+        setOpen(true);
+      } else {
+        toast("Please log in to use this feature");
+      }
+    }}>
       <DialogTrigger className='pl-2 border-2 w-auto rounded-md flex items-center justify-between gap-1 ' >HarmonyHeals AI
-      <ChevronRightIcon width={20}/>
+        <ChevronRightIcon width={20} />
       </DialogTrigger>
       <DialogContent className="bg-primary-black border-none">
+        <DialogTitle className="flex flex-col gap-2 items-center justify-center">
+          <p className='text-4xl text-primary-white'>Good {time},username</p>
+          <p className='text-xl'>How do you feel today? </p>
+        </DialogTitle>
         <DialogHeader  >
           <DialogDescription className="flex flex-col gap-2 items-center justify-center" >
-            <p className='text-4xl text-white'>Good {time},username</p>
-            <p className='text-xl'>How do you feel today? </p>
+            {/* <p className='text-4xl text-white'>Good {time},username</p>
+            <p className='text-xl'>How do you feel today? </p> */}
             {selectedTag.length > 0 && (
               <div>
                 {/* <p>Hmm, so you're suffering from:</p> */}
@@ -85,7 +96,7 @@ const userFeels = () => {
 
             <div className='text-center pb-2'>
               {innerFeels.map((item) => (
-                <Tag key={item}  bgColor="#DAD7CA" onClick={() => handleChange(item)} margin={1} cursor="pointer" >{item}</Tag>
+                <Tag key={item} bgColor="#DAD7CA" onClick={() => handleChange(item)} margin={1} cursor="pointer" >{item}</Tag>
 
               ))}
             </div>

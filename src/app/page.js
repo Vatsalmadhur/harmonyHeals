@@ -6,9 +6,12 @@ import { About } from '@/components/About/About';
 import { Spacer } from '@/components/Common/Spacers/Spacer';
 import { Services } from '@/components/Services/Services';
 import { Contact } from '@/components/Contact/Contact';
+
 import Footer from '@/components/Common/Footer/Footer';
 import AudioCard from '@/components/Common/AudioCard/AudioCard';
 import { Spacer2 } from '@/components/Common/Spacers/Spacer2';
+import Know from '@/components/Know/Know';
+
 
 export default function Home() {
   return (
@@ -16,22 +19,15 @@ export default function Home() {
         <div className='w-[100vw] h-auto  flex flex-col items-center justify-center'>
         <Navbar/>
         <Hero/>
-        {/* </div> */}
-        {/* <div className='w-[100vw] flex flex-col items-center justify-center'> */}
-        {/* <Spacer /> */}
-        <About/>
         {/* <Spacer2 /> */}
+        <About/>
+        <Spacer2 />
         <Services/>
         <Spacer />
+        {/* <Spacer2 /> */}
+        <Know/>
+        <Spacer/>
         <Contact/>
-        <Spacer2 />
-        {/* <Services/>
-        <Spacer />
-        <Spacer />
-
-        <Contact/>
-        <Spacer />
-        <Spacer /> */}
         </div>
         <Footer/>
 
