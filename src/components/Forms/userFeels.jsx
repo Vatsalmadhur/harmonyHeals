@@ -22,20 +22,6 @@ import Loader from '../Common/Loader/loader';
 
 
 const userFeels = () => {
-
-// toast("Please log in to use this feature", {
-//   progressStyle: {
-//     background: "#faa500",
-//     height: "5px",
-//     borderRadius: "3px",
-//   },
-//   style: {
-//     backgroundColor: "#648997",
-//     color: "#DAD7CA",
-//     fontSize: "16px",
-//     fontWeight: "thin",
-//   },
-// })
   const router = useRouter();
   const time = DayOrNight();
   const { user } = useUser();
