@@ -28,7 +28,7 @@ const page = () => {
   return (
     <>
       <div className='flex flex-col h-auto items-center' >
-        <div style={{ backgroundImage: "url('/assets/hhai1.svg')" }} className='w-[90%] md:h-[250px] h-[180px] bg-cover bg-center flex items-center justify-center gap-20 rounded-3xl mt-5 p-3 '>
+        <div style={{ backgroundImage: "url('/assets/hhai1.webp')" }} className='w-[90%] md:h-[250px] h-[180px] bg-cover bg-center flex items-center justify-center gap-20 rounded-3xl mt-5 p-3 '>
           <div className=' md:w-[400px] md:block w-0 hidden'></div>
           <div className=''>
             <p className='md:text-6xl text-4xl font-semibold customFont2 hhai '>HarmonyHeals AI</p>

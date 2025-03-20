@@ -43,7 +43,7 @@ export const Contact = () => {
       <div className="font-[sans-serif] h-screen  w-screen bg-primary-green flex items-center justify-center">
           <div className="grid lg:grid-cols-2 h-auto  w-[90%]  py-8 px-6  bg-white rounded-xl">
             <div className="text-center sm:flex flex-col items-center justify-center  hidden md:mb-5 lg:mb-0 ">
-              <img src="/assets/b1.svg" className="w-[450px] " />
+              <img src="/assets/b1.webp" className="w-[450px] " />
             </div>
 
             <form action='/contact' onSubmit={handleSubmit} className="flex flex-col items-center justify-center h-auto  ">
