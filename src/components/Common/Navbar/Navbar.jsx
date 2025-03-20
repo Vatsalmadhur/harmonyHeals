@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext"; // Access user from context
 import { Image, Text, Button, HStack, VStack, Popover, PopoverTrigger, PopoverContent } from "@chakra-ui/react";
@@ -8,6 +8,7 @@ import { CustomButtonV1 } from "../CustomButton/CustomButtonV1";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import Loader from "../Loader/loader";
 
 export const Navbar = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -27,6 +28,7 @@ export const Navbar = () => {
     })
   })
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { user } = useUser(); // Access user from context
   const router = useRouter();
 
@@ -43,6 +45,14 @@ export const Navbar = () => {
       console.error("Error logging out: ", error);
     }
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div id="navbar" className="lg:w-[70%] md:w-[80%] w-[95%] bg-primary-green rounded-full min-h-[50px] h-auto  flex items-center justify-between fixed top-5  z-20 border-2 border-primary-white ">
@@ -77,7 +87,11 @@ export const Navbar = () => {
 
 
       <div>
-        {user ? (
+        {loading ? (
+        <div className="mr-4">
+          <Loader />
+          </div> ):
+          user ? (
           <Popover modal >
             <PopoverTrigger asChild>
               <Image
@@ -108,12 +122,12 @@ export const Navbar = () => {
           ) :
           (
           <div className=" mr-1" >
-          <CustomButtonV1 content="Login" rounded="full" onClick={handleLoginRedirect} />
+            <CustomButtonV1 content="Login" rounded="full" onClick={handleLoginRedirect} />
           </div>
 
           )
         }
-      </div>
+        </div>
     </div>
-  );
+      );
 };

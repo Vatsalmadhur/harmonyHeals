@@ -18,15 +18,17 @@ import {
 import { CustomButtonV2 } from '../Common/CustomButton/CustomButtonV2';
 import { CustomButtonV1 } from '../Common/CustomButton/CustomButtonV1';
 import { toast } from 'react-toastify';
+import Loader from '../Common/Loader/loader';
 
 
 const userFeels = () => {
   const router = useRouter();
   const time = DayOrNight();
   const { user } = useUser();
-  const [selectedTag, setSelectedTag] = useState([""]);
+  const [selectedTag, setSelectedTag] = useState([]);
   const { setUserMood } = useUser();
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleChange = (item) => {
 
     if (!selectedTag.includes(item)) {
@@ -38,7 +40,10 @@ const userFeels = () => {
   }
   let finalData = "";
   const handleClick = async () => {
+    console.log(selectedTag)
+    if (selectedTag.length > 0) {
       try {
+        setLoading(true);
         const res = await axiosClient.post('/geminicat',
           {
             "userfeels": selectedTag,
@@ -55,22 +60,32 @@ const userFeels = () => {
       catch (error) {
         console.log("error", error);
       }
+    }
+    else {
+      new toast("Select at least one tag!")
+    }
   }
 
   return (
-    <Dialog open={open} onOpenChange={() => {
-      if (user) {
-        setOpen(true);
-      } else {
-        toast("Please log in to use this feature");
-      }
-    }}>
+    <Dialog
+      open={open}
+      onOpenChange={(isOpen) => {
+        if (!isOpen) {
+          setOpen(false);
+        } else if (user) {
+          setOpen(true); 
+        } else {
+          toast("Please log in to use this feature");
+        }
+      }}
+    >
+
       <DialogTrigger className='pl-2 border-2 w-auto rounded-md flex items-center justify-between gap-1 ' >HarmonyHeals AI
         <ChevronRightIcon width={20} />
       </DialogTrigger>
       <DialogContent className="bg-primary-black border-none">
         <DialogTitle className="flex flex-col gap-2 items-center justify-center">
-          <p className='text-4xl text-primary-white'>Good {time},username</p>
+          <p className='text-4xl text-primary-white'>Good {time},{user ? user.displayName.split(" ")[0] : "Friend"}</p>
           <p className='text-xl'>How do you feel today? </p>
         </DialogTitle>
         <DialogHeader  >
@@ -100,7 +115,7 @@ const userFeels = () => {
 
               ))}
             </div>
-            <CustomButtonV2 onClick={handleClick} content="Lets begin your healing journey" />
+            {loading ? <Loader /> : <CustomButtonV2 onClick={handleClick} content="Lets begin your healing journey" />}
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

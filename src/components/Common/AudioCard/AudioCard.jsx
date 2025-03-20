@@ -15,7 +15,7 @@ const AudioCard = (props) => {
   };
   console.log(props.title);
   return (
-    <div className="w-[60vw] min-h-[50px] border-[1px] border-white flex items-center justify-evenly rounded-lg">
+    <div className={`w-[60vw] min-h-[50px] border-[1px] border-white flex items-center justify-evenly rounded-lg ${props.className} `}>
       <p className="text-white text-xl w-[60%] ">{props.title}</p>
 
       <audio ref={audioRef}
