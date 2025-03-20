@@ -44,10 +44,11 @@ const Know = () => {
       </div>
 
       {/* BowlView Section */}
-      <div className="w-auto h-auto pb-10 ">
+      <div className="w-auto h-auto pb-10 md:block hidden  ">
         {/* Uncomment when BowlView is ready */}
         <BowlView />
       </div>
+      <img src="/assets/tbowl.webp" alt="" className='w-[90%] md:hidden mt-5' />
     </div>
   );
 };
