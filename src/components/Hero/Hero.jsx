@@ -13,16 +13,17 @@ export const Hero = () => {
   useGSAP(() => {
     // gsap.to('.heroText', { opacity: 1, duration: 1,left:100, ease: 'power3.in' })
     // gsap.to('.subHeroText', { opacity: 1, duration: 1, ease: 'power3.in' })
-    gsap.fromTo(".heroText",
+    const tl=gsap.timeline()
+    tl.fromTo(".heroText",
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.5, ease:"power4.out",stagger:0.1 }
     );
-    gsap.to(".heroBtns",{
+    tl.to(".heroBtns",{
       opacity:1,
       delay:1,
       duration:1
     })
-    gsap.to('.bgimg',
+    tl.to('.bgimg',
     {
       scale:1.1,
       scrollTrigger:{
@@ -36,7 +37,7 @@ export const Hero = () => {
   const router = useRouter()
   return (
     <div  className="flex flex-col w-screen h-[100vh] justify-center m-0 p-0 items-center relative">
-      <div style={{backgroundImage: "url('/assets/background.svg')"}} className='w-screen h-screen absolute bgimg'></div>
+      <div style={{backgroundImage: "url('/assets/background.webp')"}} className='w-screen h-screen absolute bg-cover bg-center bgimg'></div>
 
       <div className="flex flex-col gap-5 items-center w-auto ">
         <div className='flex flex-col items-center '>
