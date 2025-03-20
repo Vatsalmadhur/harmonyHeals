@@ -11,7 +11,7 @@ export async function googleLogin(){
   if(result.user){
     window.location.href='/'
   }
-  console.log(result.name);
+  // console.log(result.name);
   }
   catch(error){
     console.log(error);

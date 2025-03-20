@@ -21,9 +21,9 @@ export const UserProvider = ({ children }) => {
     return () => unsubscribe(); // Clean up on unmount
   }, []);
 
-  useEffect(()=>{
-    console.log(userMood)
-  },[])
+  // useEffect(()=>{
+  //   console.log(userMood)
+  // },[])
 
   return (
     <UserContext.Provider value={{ user, setUser, userMood,setUserMood }}>

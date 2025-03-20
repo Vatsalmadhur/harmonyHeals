@@ -25,7 +25,7 @@ export const Contact = () => {
         isLoading: false,
         autoClose: 3000,
       });
-      console.log(response);
+      // console.log(response);
     } catch (err) {
       toast.update(toastId, {
         render: 'Message sending failed 🤯',
