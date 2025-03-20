@@ -37,11 +37,11 @@ const Signup = () => {
   // Do not change this function
   const handleSignup = async (e) => {
     e.preventDefault();
-    console.log(e.target);
+    // console.log(e.target);
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      console.log(auth);
+      // console.log(auth);
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,

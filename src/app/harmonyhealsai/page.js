@@ -9,7 +9,7 @@ import { useGSAP } from '@gsap/react'
 const page = () => {
   const { userMood } = useUser();
   const { filename, frequency, duration, message } = userMood;
-  console.log(userMood)
+  // console.log(userMood)
 
   useGSAP(()=>{
     const tl = gsap.timeline();

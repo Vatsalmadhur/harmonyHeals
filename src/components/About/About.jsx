@@ -37,7 +37,7 @@ export const About = () => {
             id="about"
             className="relative z-10 lg:w-[40%] w-full min-w-[400px] flex flex-col justify-center items-center text-white "
           >
-            <div className="md:px-5 px-2 ">
+            <div className="md:px-5 px-5 ">
               <Heading text="About Us"  />
               <p className="text-xl  pt-2 customFont3 mt-5  text-left ">
                 Welcome to HarmonyHeals, where ancient wisdom meets modern
@@ -50,7 +50,7 @@ export const About = () => {
                 practices designed to support your mental, emotional, and physical
                 well-being.
               </p>
-              <p className="text-xl customFont3 text-left">
+              <p className="text-xl customFont3 text-left mt-2">
                 We are passionate about making wellness accessible to all. Our
                 commitment is to empower you with tools that are practical,
                 transformative, and deeply resonant with your unique needs.
