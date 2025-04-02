@@ -49,7 +49,7 @@ export const Navbar = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer)
   }, [])
@@ -78,7 +78,7 @@ export const Navbar = () => {
           <a
             key={index}
             href={item.link}
-            className="mid-nav-txt text-lg text-primary-black customFont2 transition-transform transform hover:text-primary-black duration-300"
+            className="mid-nav-txt text-lg text-primary-black  transition-transform transform hover:text-primary-black duration-300"
           >
             {item.label}
           </a>

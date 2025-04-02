@@ -62,7 +62,7 @@ const Signup = () => {
     src="/assets/b21.svg"
     id="img"
     className="absolute lg:w-[80%] lg:left-[-250px] lg:top-auto md:w-[100%] md:top-[-250px] md:rounded-[50px] sm:top-[-110px] rounded-b-[40px] rounded-bl-[40px] top-[-50px] left-0 z-[-1]"
-    alt="Background"
+    alt="Background image"
   />
   <main className="w-[450px] rounded-xl mx-5" id="form">
     <h1 className="text-3xl font-bold mb-6 text-center text-primary-white">Create your account</h1>
