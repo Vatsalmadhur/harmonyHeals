@@ -6,9 +6,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
 
-export const Services = () => {
+export default function Services () {
+   gsap.registerPlugin(ScrollTrigger);
   const serviceRefs = useRef([]);
 
   useGSAP(() => {
@@ -43,7 +43,7 @@ export const Services = () => {
             >
               <img
                 src={item.img}
-                alt={item.title}
+                alt={item.title + "img here"}
                 className="w-[300px] rounded-xl ransition-transform duration-500 ease-in-out hover:scale-105 hover:opacity-80"
               />
               <p className="absolute bottom-[20px] pl-5 text-primary-white">

@@ -8,11 +8,9 @@ import { CustomButtonV2 } from '../Common/CustomButton/CustomButtonV2'
 import BowlView from '../BowlView/bowlView'
 import dynamic from "next/dynamic";
 import UserFeels from '../Forms/userFeels'
-export const Hero = () => {
+export default function Hero (){
   gsap.registerPlugin("ScrollTrigger");
   useGSAP(() => {
-    // gsap.to('.heroText', { opacity: 1, duration: 1,left:100, ease: 'power3.in' })
-    // gsap.to('.subHeroText', { opacity: 1, duration: 1, ease: 'power3.in' })
     const tl=gsap.timeline()
     tl.fromTo(".heroText",
       { y: 50, opacity: 0 },
@@ -20,7 +18,6 @@ export const Hero = () => {
     );
     tl.to(".heroBtns",{
       opacity:1,
-      delay:1,
       duration:1
     })
     tl.to('.bgimg',
@@ -39,13 +36,13 @@ export const Hero = () => {
     <div  className="flex flex-col w-screen h-[100vh] justify-center m-0 p-0 items-center relative">
       <div style={{backgroundImage: "url('/assets/background.webp')"}} className='w-screen h-screen absolute bg-cover bg-center bgimg'></div>
 
-      <div className="flex flex-col gap-5 items-center w-auto ">
+      <div className="flex flex-col gap-5 items-center w-auto z-10 ">
         <div className='flex flex-col items-center '>
-          <p className="heroText text-center lg:text-9xl md:text-7xl text-6xl customFont1 opacity-0  ">Ancient Sounds,</p>
-          <p className="heroText lg:text-8xl md:text-6xl text-5xl  text-center customFont1 font-bold opacity-0">Modern wellness.</p>
+          <p className="heroText text-center lg:text-7xl md:text-7xl text-6xl customFont1   ">Ancient Sounds,</p>
+          <p className="heroText lg:text-7xl md:text-6xl text-5xl  text-center customFont1 font-bold ">Modern wellness.</p>
         </div>
-        <p className="heroText text-lg md:text-2xl  text-center opacity-0">Sounds for the Mind, Body and Soul.</p>
-        <div className='flex justify-center gap-10 w-[400px] opacity-0 heroBtns z-10'>
+        <p className="heroText text-lg md:text-2xl  text-center ">Sounds for the Mind, Body and Soul.</p>
+        <div className='flex justify-center gap-10 w-[400px]  heroBtns z-10 opacity-0'>
           <CustomButtonV1 content="Try for free" onClick={() => router.push("/category")} />
           <UserFeels />
         </div>

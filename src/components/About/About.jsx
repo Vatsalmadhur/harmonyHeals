@@ -6,7 +6,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
-export const About = () => {
+export default function About(){
   gsap.registerPlugin("ScrollTrigger");
   useGSAP(() => {
     gsap.to('#script1', {
@@ -28,7 +28,7 @@ export const About = () => {
     <>
       <div className="bg-primary-green w-full relative ">
         <div className="w-full sm:h-[300px] h-[200px]  sm:py-6 overflow-hidden">
-          <img id="script1" src="/assets/script.svg" className="max-w-none h-full" />
+          <img id="script1" src="/assets/script.svg" alt="Tibetian Script img" className="max-w-none h-full" />
         </div>
 
 
@@ -64,7 +64,7 @@ export const About = () => {
           </section>
         </div>
         <div className="w-full sm:h-[300px] h-[200px] sm:p-6 mt-5 md:mt-0  overflow-hidden">
-          <img id="script2" src="/assets/script.svg" className="max-w-none h-full" />
+          <img alt="Tibetian script" id="script2" src="/assets/script.svg" className="max-w-none h-full" />
         </div>
 
       </div>

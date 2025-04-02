@@ -7,7 +7,7 @@ function Footer() {
         <div className="flex flex-wrap justify-between  items-center">
           {/* Logo and Description */}
           <div className="w-full md:w-1/3 mb-6 md:mb-0  md:text-left text-center">
-            <h1 className="text-2xl font-bold">Harmony Heals</h1>
+            <h1 className="text-2xl font-bold customFont1">Harmony Heals</h1>
             <p className="mt-2 text-sm">
               Bringing balance to your life with binaural beats and healing
               frequencies.
@@ -62,7 +62,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-xs">
-          <p>&copy; 2024 Harmony Heals. All rights reserved.</p>
+          <p>&copy; 2025 Harmony Heals. All rights reserved.</p>
         </div>
       </div>
     </footer>

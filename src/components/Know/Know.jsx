@@ -1,9 +1,12 @@
 import React, { useRef } from 'react';
-import BowlView from '../BowlView/bowlView';
+// import BowlView from '../BowlView/bowlView';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import dynamic from 'next/dynamic';
+const BowlView = dynamic(()=>import('../BowlView/bowlView'),{
+  loading:()=> <p>Loading...</p>
+})
 const Know = () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +51,7 @@ const Know = () => {
         {/* Uncomment when BowlView is ready */}
         <BowlView />
       </div>
-      <img src="/assets/tbowl.webp" alt="" className='w-[90%] md:hidden mt-5' />
+      <img alt="bowl img here" src="/assets/tbowl.webp" className='w-[90%] md:hidden mt-5' />
     </div>
   );
 };
